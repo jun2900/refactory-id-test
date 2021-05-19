@@ -100,34 +100,36 @@ func bornEightySix(users []*User) {
 
 // Articles that contain tips on the title
 func titleContainTips(users []*User) {
-	var result []*Article
+	//var result []*Article
+	fmt.Println("Articles that contain tips on the title")
 	for _, v := range users {
 		for _, article := range v.Articles {
 			if strings.Contains(strings.ToLower(article.Title), "tips") {
-				result = append(result, &article)
+				fmt.Println(article)
+				//result = append(result, &article)
 			}
 		}
 	}
-	data, _ := json.MarshalIndent(result, "", " ")
-	fmt.Println("Articles that contain tips on the title")
-	fmt.Println(string(data))
+	//data, _ := json.MarshalIndent(result, "", " ")
+	//fmt.Println(string(data))
 }
 
 // Articles that are published before August 2019
 func articleBeforeAugustTwentyNineteen(users []*User) {
 	var layout = "2006-01-02T15:04:05"
-	var result []*Article
+	//var result []*Article
+	fmt.Println("Articles that are published before August 2019")
 	for _, v := range users {
 		for _, article := range v.Articles {
 			t, _ := time.Parse(layout, article.PublishedAt)
 			if int(t.Month()) < 8 && t.Year() <= 2019 {
-				result = append(result, &article)
+				fmt.Println(article)
+				//result = append(result, &article)
 			}
 		}
 	}
-	data, _ := json.MarshalIndent(result, "", " ")
-	fmt.Println("Articles that are published before August 2019")
-	fmt.Println(string(data))
+	//data, _ := json.MarshalIndent(result, "", " ")
+	//fmt.Println(string(data))
 }
 
 func main() {
