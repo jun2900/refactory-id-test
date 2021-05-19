@@ -4,6 +4,7 @@ import (
 	"bufio"
 	"fmt"
 	"os"
+	"strings"
 
 	"golang.org/x/text/language"
 	"golang.org/x/text/message"
@@ -27,7 +28,8 @@ func main() {
 
 	for {
 		fmt.Print("Input item (type exit to quit): ")
-		fmt.Scanf("%s", &item)
+		item, _ = reader.ReadString('\n')
+		item = strings.TrimSuffix(item, "\n")
 		if item == "exit" {
 			break
 		}
@@ -38,7 +40,7 @@ func main() {
 	}
 
 	// Display output
-	fmt.Printf("%15v\n", restoName)
+	fmt.Printf("%v\n", restoName)
 	fmt.Printf("Tanggal :%24s\n", dateOfPrint)
 	fmt.Printf("Nama Kasir :%18s\n", cashierName)
 	fmt.Println("================================")

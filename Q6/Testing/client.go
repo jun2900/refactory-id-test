@@ -15,7 +15,7 @@ func Client() {
 	rand.Seed(time.Now().UnixNano())
 	counter := 1
 	for {
-		time.Sleep(5 * time.Second)
+		time.Sleep(60 * time.Second)
 		postBody, _ := json.Marshal(map[string]int{
 			"counter": counter,
 		})
